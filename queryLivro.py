@@ -1,10 +1,15 @@
-import sqlite3
+import mysql.connector
 
 # ------ PESQUISAS POR LIVROS ------
 
 def livroExiste(isbn):
-    conn = sqlite3.connect('biblioteca.db')
-    c = conn.cursor()
+    conexao = mysql.connector.connect(
+    host = '172.31.96.227', #ip do banco
+    user= 'admin',
+    password= 'minich25',
+    database= 'crud'
+)
+    c = conexao.cursor()
     c.execute("""SELECT * FROM livro
                 WHERE 
                     EXISTS(
@@ -23,8 +28,13 @@ def livroExiste(isbn):
 
 #pesquisa por nome autor ordena por a-z de título
 def ordemAlfAutor(nome):
-    conn = sqlite3.connect('biblioteca.db')
-    c = conn.cursor()
+    conexao = mysql.connector.connect(
+    host = '172.31.96.227', #ip do banco
+    user= 'admin',
+    password= 'minich25',
+    database= 'crud'
+)
+    c = conexao.cursor()
     c.execute("""SELECT * FROM viewExemplar
                 WHERE Nome=?
                 ORDER BY Titulo
@@ -37,8 +47,13 @@ def ordemAlfAutor(nome):
 
 #pesquisa por nome autor ordena por z-a de título
 def ordemAlfCAutor(nome):
-    conn = sqlite3.connect('biblioteca.db')
-    c = conn.cursor()
+    conexao = mysql.connector.connect(
+    host = '172.31.96.227', #ip do banco
+    user= 'admin',
+    password= 'minich25',
+    database= 'crud'
+)
+    c = conexao.cursor()
     c.execute("""SELECT * FROM viewExemplar
                 WHERE Nome=?
                 ORDER BY Titulo DESC;
@@ -51,8 +66,13 @@ def ordemAlfCAutor(nome):
 
 #pesquisa por nome autor ordena por a-z de sobrenome
 def buscaAutorOAS(nome):
-    conn = sqlite3.connect('biblioteca.db')
-    c = conn.cursor()
+    conexao = mysql.connector.connect(
+    host = '172.31.96.227', #ip do banco
+    user= 'admin',
+    password= 'minich25',
+    database= 'crud'
+)
+    c = conexao.cursor()
     c.execute("""SELECT * FROM viewExemplar
                 WHERE Nome=?
                 ORDER BY Sobrenome
@@ -65,8 +85,13 @@ def buscaAutorOAS(nome):
 
 #pesquisa por nome autor ordena por z-a de sobrenome
 def buscaAutorOADS(nome):
-    conn = sqlite3.connect('biblioteca.db')
-    c = conn.cursor()
+    conexao = mysql.connector.connect(
+    host = '172.31.96.227', #ip do banco
+    user= 'admin',
+    password= 'minich25',
+    database= 'crud'
+)
+    c = conexao.cursor()
     c.execute("""SELECT * FROM viewExemplar
                 WHERE Nome=?
                 ORDER BY Sobrenome DESC
@@ -79,8 +104,13 @@ def buscaAutorOADS(nome):
 
 #pesquisa por nome autor ordena por editora
 def buscaAutorOEdit(nome):
-    conn = sqlite3.connect('biblioteca.db')
-    c = conn.cursor()
+    conexao = mysql.connector.connect(
+    host = '172.31.96.227', #ip do banco
+    user= 'admin',
+    password= 'minich25',
+    database= 'crud'
+)
+    c = conexao.cursor()
     c.execute("""SELECT * FROM viewExemplar
                 WHERE Nome=?
                 ORDER BY Editora
@@ -93,8 +123,13 @@ def buscaAutorOEdit(nome):
 
 #pesquisa por nome autor ordena por a-z de títuloOriginal
 def buscaAutorOATO(nome):
-    conn = sqlite3.connect('biblioteca.db')
-    c = conn.cursor()
+    conexao = mysql.connector.connect(
+    host = '172.31.96.227', #ip do banco
+    user= 'admin',
+    password= 'minich25',
+    database= 'crud'
+)
+    c = conexao.cursor()
     c.execute("""SELECT * FROM viewExemplar
                 WHERE Nome=?
                 ORDER BY TituloOriginal
@@ -107,8 +142,13 @@ def buscaAutorOATO(nome):
 
 #pesquisa por nome autor ordena por z-a de títuloOriginal
 def buscaAutorOADTO(nome):
-    conn = sqlite3.connect('biblioteca.db')
-    c = conn.cursor()
+    conexao = mysql.connector.connect(
+    host = '172.31.96.227', #ip do banco
+    user= 'admin',
+    password= 'minich25',
+    database= 'crud'
+)
+    c = conexao.cursor()
     c.execute("""SELECT * FROM viewExemplar
                 WHERE Nome=?
                 ORDER BY TituloOriginal DESC
@@ -120,8 +160,13 @@ def buscaAutorOADTO(nome):
 #print(buscaAutorOADTO("Esopo"))
 
 def buscaAutorOrdenaData(nome):
-    conn = sqlite3.connect('biblioteca.db')
-    c = conn.cursor()
+    conexao = mysql.connector.connect(
+    host = '172.31.96.227', #ip do banco
+    user= 'admin',
+    password= 'minich25',
+    database= 'crud'
+)
+    c = conexao.cursor()
     c.execute("""SELECT * FROM viewExemplar
                 WHERE Nome=?
                 ORDER BY Publicacao
@@ -132,8 +177,13 @@ def buscaAutorOrdenaData(nome):
     return rows 
 
 def buscaAutorOrdenaEdicao(nome):
-    conn = sqlite3.connect('biblioteca.db')
-    c = conn.cursor()
+    conexao = mysql.connector.connect(
+    host = '172.31.96.227', #ip do banco
+    user= 'admin',
+    password= 'minich25',
+    database= 'crud'
+)
+    c = conexao.cursor()
     c.execute("""SELECT * FROM viewExemplar
                 WHERE Nome=?
                 ORDER BY Edicao
@@ -150,8 +200,13 @@ def buscaAutorOrdenaEdicao(nome):
 
 #pesquisa por sobrenome autor ordena por a-z de título
 def ordemAlfSAutor(nome):
-    conn = sqlite3.connect('biblioteca.db')
-    c = conn.cursor()
+    conexao = mysql.connector.connect(
+    host = '172.31.96.227', #ip do banco
+    user= 'admin',
+    password= 'minich25',
+    database= 'crud'
+)
+    c = conexao.cursor()
     c.execute("""SELECT * FROM viewExemplar
                 WHERE Sobrenome=?
                 ORDER BY Titulo;
@@ -164,8 +219,13 @@ def ordemAlfSAutor(nome):
 
 #pesquisa por sobrenome autor ordena por z-a de título
 def ordemAlfCSAutor(nome):
-    conn = sqlite3.connect('biblioteca.db')
-    c = conn.cursor()
+    conexao = mysql.connector.connect(
+    host = '172.31.96.227', #ip do banco
+    user= 'admin',
+    password= 'minich25',
+    database= 'crud'
+)
+    c = conexao.cursor()
     c.execute("""SELECT * FROM viewExemplar
                 WHERE Sobrenome=?
                 ORDER BY Titulo DESC;
@@ -178,8 +238,13 @@ def ordemAlfCSAutor(nome):
 
 #pesquisa por sobrenome autor ordena por a-z de nome
 def buscaSAutorOAN(nome):
-    conn = sqlite3.connect('biblioteca.db')
-    c = conn.cursor()
+    conexao = mysql.connector.connect(
+    host = '172.31.96.227', #ip do banco
+    user= 'admin',
+    password= 'minich25',
+    database= 'crud'
+)
+    c = conexao.cursor()
     c.execute("""SELECT * FROM viewExemplar
                 WHERE Sobrenome=?
                 ORDER BY Nome
@@ -192,8 +257,13 @@ def buscaSAutorOAN(nome):
 
 #pesquisa por sobrenome autor ordena por z-a de nome
 def buscaSAutorOADN(nome):
-    conn = sqlite3.connect('biblioteca.db')
-    c = conn.cursor()
+    conexao = mysql.connector.connect(
+    host = '172.31.96.227', #ip do banco
+    user= 'admin',
+    password= 'minich25',
+    database= 'crud'
+)
+    c = conexao.cursor()
     c.execute("""SELECT * FROM viewExemplar
                 WHERE Sobrenome=?
                 ORDER BY Nome DESC
@@ -205,8 +275,13 @@ def buscaSAutorOADN(nome):
 #print(buscaSAutorOADN("Esopo"))
 
 def buscaSAutorOrdenaData(nome):
-    conn = sqlite3.connect('biblioteca.db')
-    c = conn.cursor()
+    conexao = mysql.connector.connect(
+    host = '172.31.96.227', #ip do banco
+    user= 'admin',
+    password= 'minich25',
+    database= 'crud'
+)
+    c = conexao.cursor()
     c.execute("""SELECT * FROM viewExemplar
                 WHERE Sobrenome=?
                 ORDER BY Publicacao
@@ -217,8 +292,13 @@ def buscaSAutorOrdenaData(nome):
     return rows 
 
 def buscaSAutorOrdenaEdicao(nome):
-    conn = sqlite3.connect('biblioteca.db')
-    c = conn.cursor()
+    conexao = mysql.connector.connect(
+    host = '172.31.96.227', #ip do banco
+    user= 'admin',
+    password= 'minich25',
+    database= 'crud'
+)
+    c = conexao.cursor()
     c.execute("""SELECT * FROM viewExemplar
                 WHERE Sobrenome=?
                 ORDER BY Edicao
@@ -233,8 +313,13 @@ def buscaSAutorOrdenaEdicao(nome):
 
 #pesquisa por editora ordena por a-z de título
 def ordemAlfEditora(nome):
-    conn = sqlite3.connect('biblioteca.db')
-    c = conn.cursor()
+    conexao = mysql.connector.connect(
+    host = '172.31.96.227', #ip do banco
+    user= 'admin',
+    password= 'minich25',
+    database= 'crud'
+)
+    c = conexao.cursor()
     c.execute("""SELECT * FROM viewExemplar
                 WHERE Editora=?
                 ORDER BY Titulo;
@@ -247,8 +332,13 @@ def ordemAlfEditora(nome):
 
 #pesquisa por editora ordena por z-a de título
 def ordemAlfDEditora(nome):
-    conn = sqlite3.connect('biblioteca.db')
-    c = conn.cursor()
+    conexao = mysql.connector.connect(
+    host = '172.31.96.227', #ip do banco
+    user= 'admin',
+    password= 'minich25',
+    database= 'crud'
+)
+    c = conexao.cursor()
     c.execute("""SELECT * FROM viewExemplar
                 WHERE Editora=?
                 ORDER BY Titulo DESC;
@@ -265,8 +355,13 @@ def ordemAlfDEditora(nome):
 
 #pesquisa por título ordem alfabética
 def ordemAlfLivro(titulo):
-    conn = sqlite3.connect('biblioteca.db')
-    c = conn.cursor()
+    conexao = mysql.connector.connect(
+    host = '172.31.96.227', #ip do banco
+    user= 'admin',
+    password= 'minich25',
+    database= 'crud'
+)
+    c = conexao.cursor()
     c.execute("""SELECT * FROM viewExemplar
                 WHERE Titulo=? 
                 ORDER BY Titulo;
@@ -279,8 +374,13 @@ def ordemAlfLivro(titulo):
 
 #pesquisa por título ordem alfabética contraria
 def ordemAlfDLivro(titulo):
-    conn = sqlite3.connect('biblioteca.db')
-    c = conn.cursor()
+    conexao = mysql.connector.connect(
+    host = '172.31.96.227', #ip do banco
+    user= 'admin',
+    password= 'minich25',
+    database= 'crud'
+)
+    c = conexao.cursor()
     c.execute("""SELECT * FROM viewExemplar
                 WHERE Titulo=? 
                 ORDER BY Titulo DESC;
@@ -292,8 +392,13 @@ def ordemAlfDLivro(titulo):
 
 #pesquisa por titulo ordena por a-z de autor
 def buscaTituloOANA(nome):
-    conn = sqlite3.connect('biblioteca.db')
-    c = conn.cursor()
+    conexao = mysql.connector.connect(
+    host = '172.31.96.227', #ip do banco
+    user= 'admin',
+    password= 'minich25',
+    database= 'crud'
+)
+    c = conexao.cursor()
     c.execute("""SELECT * FROM viewExemplar
                 WHERE Titulo=?
                 ORDER BY Nome
@@ -306,8 +411,13 @@ def buscaTituloOANA(nome):
 
 #pesquisa por titulo ordena por z-a de autor
 def buscaTituloOADNA(nome):
-    conn = sqlite3.connect('biblioteca.db')
-    c = conn.cursor()
+    conexao = mysql.connector.connect(
+    host = '172.31.96.227', #ip do banco
+    user= 'admin',
+    password= 'minich25',
+    database= 'crud'
+)
+    c = conexao.cursor()
     c.execute("""SELECT * FROM viewExemplar
                 WHERE Titulo=?
                 ORDER BY Nome DESC
@@ -320,8 +430,13 @@ def buscaTituloOADNA(nome):
 
 #pesquisa por titulo ordena por editora
 def buscaTituloOEdit(nome):
-    conn = sqlite3.connect('biblioteca.db')
-    c = conn.cursor()
+    conexao = mysql.connector.connect(
+    host = '172.31.96.227', #ip do banco
+    user= 'admin',
+    password= 'minich25',
+    database= 'crud'
+)
+    c = conexao.cursor()
     c.execute("""SELECT * FROM viewExemplar
                 WHERE Titulo=?
                 ORDER BY Editora
@@ -336,8 +451,13 @@ def buscaTituloOEdit(nome):
 # PESQUISA POR TÍTULO ORIGINAL
 #pesquisa por título ordem alfabética
 def ordemAlfLivroO(titulo):
-    conn = sqlite3.connect('biblioteca.db')
-    c = conn.cursor()
+    conexao = mysql.connector.connect(
+    host = '172.31.96.227', #ip do banco
+    user= 'admin',
+    password= 'minich25',
+    database= 'crud'
+)
+    c = conexao.cursor()
     c.execute("""SELECT * FROM viewExemplar
                 WHERE TituloOriginal=? 
                 ORDER BY TituloOriginal;
@@ -350,8 +470,13 @@ def ordemAlfLivroO(titulo):
 
 #pesquisa por titulo ordena por a-z de autor
 def buscaTituloOrigOANA(nome):
-    conn = sqlite3.connect('biblioteca.db')
-    c = conn.cursor()
+    conexao = mysql.connector.connect(
+    host = '172.31.96.227', #ip do banco
+    user= 'admin',
+    password= 'minich25',
+    database= 'crud'
+)
+    c = conexao.cursor()
     c.execute("""SELECT * FROM viewExemplar
                 WHERE TituloOriginal=?
                 ORDER BY Nome
@@ -364,8 +489,13 @@ def buscaTituloOrigOANA(nome):
 
 #pesquisa por titulo ordena por z-a de autor
 def buscaTituloOrigOADNA(nome):
-    conn = sqlite3.connect('biblioteca.db')
-    c = conn.cursor()
+    conexao = mysql.connector.connect(
+    host = '172.31.96.227', #ip do banco
+    user= 'admin',
+    password= 'minich25',
+    database= 'crud'
+)
+    c = conexao.cursor()
     c.execute("""SELECT * FROM viewExemplar
                 WHERE TituloOriginal=?
                 ORDER BY Nome DESC
@@ -378,8 +508,13 @@ def buscaTituloOrigOADNA(nome):
 
 #pesquisa por titulo ordena por editora
 def buscaTituloOrigOEdit(nome):
-    conn = sqlite3.connect('biblioteca.db')
-    c = conn.cursor()
+    conexao = mysql.connector.connect(
+    host = '172.31.96.227', #ip do banco
+    user= 'admin',
+    password= 'minich25',
+    database= 'crud'
+)
+    c = conexao.cursor()
     c.execute("""SELECT * FROM viewExemplar
                 WHERE TituloOriginal=?
                 ORDER BY Editora
@@ -391,8 +526,13 @@ def buscaTituloOrigOEdit(nome):
 #print(buscaTituloOrigOEdit("Fábulas de Esopo"))
 
 def buscaTituloOrdenaEdicao(nome):
-    conn = sqlite3.connect('biblioteca.db')
-    c = conn.cursor()
+    conexao = mysql.connector.connect(
+    host = '172.31.96.227', #ip do banco
+    user= 'admin',
+    password= 'minich25',
+    database= 'crud'
+)
+    c = conexao.cursor()
     c.execute("""SELECT * FROM viewExemplar
                 WHERE TituloOriginal=?
                 ORDER BY Edicao
@@ -403,8 +543,13 @@ def buscaTituloOrdenaEdicao(nome):
     return rows 
 
 def buscaTituloOrdenaPublicacao(nome):
-    conn = sqlite3.connect('biblioteca.db')
-    c = conn.cursor()
+    conexao = mysql.connector.connect(
+    host = '172.31.96.227', #ip do banco
+    user= 'admin',
+    password= 'minich25',
+    database= 'crud'
+)
+    c = conexao.cursor()
     c.execute("""SELECT * FROM viewExemplar
                 WHERE TituloOriginal=?
                 ORDER BY Publicacao
@@ -419,8 +564,13 @@ def buscaTituloOrdenaPublicacao(nome):
 
 #pesquisa livro por isbn
 def volumes(isbn):
-    conn = sqlite3.connect('biblioteca.db')
-    c = conn.cursor()
+    conexao = mysql.connector.connect(
+    host = '172.31.96.227', #ip do banco
+    user= 'admin',
+    password= 'minich25',
+    database= 'crud'
+)
+    c = conexao.cursor()
     c.execute("""SELECT * FROM viewExemplar
                 WHERE isbn=?
             """, (isbn,))
@@ -435,8 +585,13 @@ def volumes(isbn):
 
 #pesquisa por palavra chave ordena por a-z de título
 def ordemAlfPC(text):
-    conn = sqlite3.connect('biblioteca.db')
-    c = conn.cursor()
+    conexao = mysql.connector.connect(
+    host = '172.31.96.227', #ip do banco
+    user= 'admin',
+    password= 'minich25',
+    database= 'crud'
+)
+    c = conexao.cursor()
     c.execute("""SELECT * FROM viewExemplar
                 WHERE Titulo LIKE ? OR TituloOriginal LIKE ? OR Nome LIKE ? OR Sobrenome LIKE ? OR Editora LIKE ? 
                 ORDER BY Titulo;
@@ -449,8 +604,13 @@ def ordemAlfPC(text):
 
 #pesquisa por palavra chave ordena por z-a de título
 def ordemAlfDPC(text):
-    conn = sqlite3.connect('biblioteca.db')
-    c = conn.cursor()
+    conexao = mysql.connector.connect(
+    host = '172.31.96.227', #ip do banco
+    user= 'admin',
+    password= 'minich25',
+    database= 'crud'
+)
+    c = conexao.cursor()
     c.execute("""SELECT * FROM viewExemplar
                 WHERE Titulo LIKE ? OR TituloOriginal LIKE ? OR Nome LIKE ? OR Sobrenome LIKE ? OR Editora LIKE ? 
                 ORDER BY Titulo DESC;

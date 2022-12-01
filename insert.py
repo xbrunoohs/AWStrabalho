@@ -1,57 +1,97 @@
-import sqlite3
+import mysql.connector
 
 def addMPessoa(many):
-    conn = sqlite3.connect('biblioteca.db')
-    c = conn.cursor()
+    conexao = mysql.connector.connect(
+    host = '172.31.96.227', #ip do banco
+    user= 'admin',
+    password= 'minich25',
+    database= 'crud'
+)
+    c = conexao.cursor()
     c.executemany("""INSERT INTO pessoa VALUES (?,?,?,?,?,?,?,?,?,?)""", (many))
     conn.commit()
     conn.close()
 
 def addMSocio(many):
-    conn = sqlite3.connect('biblioteca.db')
-    c = conn.cursor()
+    conexao = mysql.connector.connect(
+    host = '172.31.96.227', #ip do banco
+    user= 'admin',
+    password= 'minich25',
+    database= 'crud'
+)
+    c = conexao.cursor()
     c.executemany("""INSERT INTO socio(cpf) VALUES (?)""", (many))
     conn.commit()
     conn.close()
 
 def addMFuncionario(many):
-    conn = sqlite3.connect('biblioteca.db')
-    c = conn.cursor()
+    conexao = mysql.connector.connect(
+    host = '172.31.96.227', #ip do banco
+    user= 'admin',
+    password= 'minich25',
+    database= 'crud'
+)
+    c = conexao.cursor()
     c.executemany("""INSERT INTO funcionario VALUES (?,?,?,?,?)""", (many))
     conn.commit()
     conn.close()
 
 def addMLivro(many):
-    conn = sqlite3.connect('biblioteca.db')
-    c = conn.cursor()
+    conexao = mysql.connector.connect(
+    host = '172.31.96.227', #ip do banco
+    user= 'admin',
+    password= 'minich25',
+    database= 'crud'
+)
+    c = conexao.cursor()
     c.executemany("""INSERT INTO livro VALUES (?,?,?,?,?,?)""", (many))
     conn.commit()
     conn.close()
 
 def addMExemplar(many):
-    conn = sqlite3.connect('biblioteca.db')
-    c = conn.cursor()
+    conexao = mysql.connector.connect(
+    host = '172.31.96.227', #ip do banco
+    user= 'admin',
+    password= 'minich25',
+    database= 'crud'
+)
+    c = conexao.cursor()
     c.executemany("""INSERT INTO exemplar(emprestado, anoPubli, edicao, isbn) VALUES (?,?,?,?)""", (many))
     conn.commit()
     conn.close()
 
 def addMAutor(many):
-    conn = sqlite3.connect('biblioteca.db')
-    c = conn.cursor()
+    conexao = mysql.connector.connect(
+    host = '172.31.96.227', #ip do banco
+    user= 'admin',
+    password= 'minich25',
+    database= 'crud'
+)
+    c = conexao.cursor()
     c.executemany("""INSERT INTO autor VALUES (?,?,?)""", (many))
     conn.commit()
     conn.close()
 
 def addMDevolucao(many):
-    conn = sqlite3.connect('biblioteca.db')
-    c = conn.cursor()
+    conexao = mysql.connector.connect(
+    host = '172.31.96.227', #ip do banco
+    user= 'admin',
+    password= 'minich25',
+    database= 'crud'
+)
+    c = conexao.cursor()
     c.executemany("""INSERT INTO devolucao(socio, funcionario, codigoExemplar, data, hora) VALUES (?,?,?,?,?)""", (many))
     conn.commit()
     conn.close()
 
 def addMEmprestimo(many):
-    conn = sqlite3.connect('biblioteca.db')
-    c = conn.cursor()
+    conexao = mysql.connector.connect(
+    host = '172.31.96.227', #ip do banco
+    user= 'admin',
+    password= 'minich25',
+    database= 'crud'
+)
+    c = conexao.cursor()
     c.executemany("""INSERT INTO emprestimo(socio, funcionario, codigoExemplar, dataE, horaE) VALUES (?,?,?,?,?)""", (many))
     conn.commit()
     conn.close()

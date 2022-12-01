@@ -1,11 +1,16 @@
-import sqlite3
+import mysql.connector
 
 # ------ PESQUISAS POR SÓCIO ------
 
 #todos os socios
 def todoSocio():
-    conn = sqlite3.connect('biblioteca.db')
-    c = conn.cursor()
+    conexao = mysql.connector.connect(
+    host = '172.31.96.227', #ip do banco
+    user= 'admin',
+    password= 'minich25',
+    database= 'crud'
+)
+    c = conexao.cursor()
     c.execute("""SELECT * FROM viewSocio  
                 ORDER BY nome;    
             """)
@@ -17,8 +22,13 @@ def todoSocio():
 
 #sócio n cadastro(a-z)
 def ordemAlfNumCadastro(nome):
-    conn = sqlite3.connect('biblioteca.db')
-    c = conn.cursor()
+    conexao = mysql.connector.connect(
+    host = '172.31.96.227', #ip do banco
+    user= 'admin',
+    password= 'minich25',
+    database= 'crud'
+)
+    c = conexao.cursor()
     c.execute("""SELECT * FROM viewSocio
                 WHERE Cadastro=?  
                 ORDER BY nome;    
@@ -31,8 +41,13 @@ def ordemAlfNumCadastro(nome):
 
 #sócio nome a-z
 def ordemAlfNomeCadastro(nome):
-    conn = sqlite3.connect('biblioteca.db')
-    c = conn.cursor()
+    conexao = mysql.connector.connect(
+    host = '172.31.96.227', #ip do banco
+    user= 'admin',
+    password= 'minich25',
+    database= 'crud'
+)
+    c = conexao.cursor()
     c.execute("""SELECT * FROM viewSocio
                 WHERE Nome=?    
             """, (nome, ))
@@ -44,8 +59,13 @@ def ordemAlfNomeCadastro(nome):
 
 #sócio nome z-a
 def ordemAlfDNomeCadastro(nome):
-    conn = sqlite3.connect('biblioteca.db')
-    c = conn.cursor()
+    conexao = mysql.connector.connect(
+    host = '172.31.96.227', #ip do banco
+    user= 'admin',
+    password= 'minich25',
+    database= 'crud'
+)
+    c = conexao.cursor()
     c.execute("""SELECT * FROM viewSocio
                 WHERE Nome=?  
                 ORDER BY Nome 
@@ -58,8 +78,13 @@ def ordemAlfDNomeCadastro(nome):
 
 #socio sobrenome a-z
 def ordemAlfSobrenomeCadastro(nome):
-    conn = sqlite3.connect('biblioteca.db')
-    c = conn.cursor()
+    conexao = mysql.connector.connect(
+    host = '172.31.96.227', #ip do banco
+    user= 'admin',
+    password= 'minich25',
+    database= 'crud'
+)
+    c = conexao.cursor()
     c.execute("""SELECT * FROM viewSocio
                 WHERE Sobrenome=?  
                 ORDER BY Sobrenome;    
@@ -72,8 +97,13 @@ def ordemAlfSobrenomeCadastro(nome):
 
 #socio sobrenome z-a
 def ordemAlfDSobrenomeCadastro(nome):
-    conn = sqlite3.connect('biblioteca.db')
-    c = conn.cursor()
+    conexao = mysql.connector.connect(
+    host = '172.31.96.227', #ip do banco
+    user= 'admin',
+    password= 'minich25',
+    database= 'crud'
+)
+    c = conexao.cursor()
     c.execute("""SELECT * FROM viewSocio
                 WHERE Sobrenome=?  
                 ORDER BY Sobrenome DESC   
@@ -86,8 +116,13 @@ def ordemAlfDSobrenomeCadastro(nome):
 
 #sócio por CPF
 def pesquisaSocioCPF(text):
-    conn = sqlite3.connect('biblioteca.db')
-    c = conn.cursor()
+    conexao = mysql.connector.connect(
+    host = '172.31.96.227', #ip do banco
+    user= 'admin',
+    password= 'minich25',
+    database= 'crud'
+)
+    c = conexao.cursor()
     c.execute("""SELECT * FROM viewSocio
                 WHERE CPF=?
             """, (text, ))
@@ -99,8 +134,13 @@ def pesquisaSocioCPF(text):
 
 #sócio por email
 def pesquisaSocioEmail(text):
-    conn = sqlite3.connect('biblioteca.db')
-    c = conn.cursor()
+    conexao = mysql.connector.connect(
+    host = '172.31.96.227', #ip do banco
+    user= 'admin',
+    password= 'minich25',
+    database= 'crud'
+)
+    c = conexao.cursor()
     c.execute("""SELECT * FROM viewSocio
                 WHERE Email=?
             """, (text, ))
@@ -114,8 +154,13 @@ def pesquisaSocioEmail(text):
 
 #todos os funcionario
 def todoFuncionario():
-    conn = sqlite3.connect('biblioteca.db')
-    c = conn.cursor()
+    conexao = mysql.connector.connect(
+    host = '172.31.96.227', #ip do banco
+    user= 'admin',
+    password= 'minich25',
+    database= 'crud'
+)
+    c = conexao.cursor()
     c.execute("""SELECT * FROM viewFuncionario  
                 ORDER BY nome;    
             """)
@@ -127,8 +172,13 @@ def todoFuncionario():
 
 #funcionario por nome
 def pesquisaFuncionarioNome(text):
-    conn = sqlite3.connect('biblioteca.db')
-    c = conn.cursor()
+    conexao = mysql.connector.connect(
+    host = '172.31.96.227', #ip do banco
+    user= 'admin',
+    password= 'minich25',
+    database= 'crud'
+)
+    c = conexao.cursor()
     c.execute("""SELECT * FROM viewFuncionario
                 WHERE Nome=? 
             """, (text, ))
@@ -140,8 +190,13 @@ def pesquisaFuncionarioNome(text):
 
 #funcionario por sobrenome
 def pesquisaFuncionarioSobrenome(text):
-    conn = sqlite3.connect('biblioteca.db')
-    c = conn.cursor()
+    conexao = mysql.connector.connect(
+    host = '172.31.96.227', #ip do banco
+    user= 'admin',
+    password= 'minich25',
+    database= 'crud'
+)
+    c = conexao.cursor()
     c.execute("""SELECT * FROM viewFuncionario
                 WHERE Sobrenome=? 
             """, (text, ))
@@ -153,8 +208,13 @@ def pesquisaFuncionarioSobrenome(text):
 
 #funcionario por CPF
 def pesquisaFuncionarioCPF(text):
-    conn = sqlite3.connect('biblioteca.db')
-    c = conn.cursor()
+    conexao = mysql.connector.connect(
+    host = '172.31.96.227', #ip do banco
+    user= 'admin',
+    password= 'minich25',
+    database= 'crud'
+)
+    c = conexao.cursor()
     c.execute("""SELECT * FROM viewFuncionario
                 WHERE CPF=? 
             """, (text, ))
@@ -166,8 +226,13 @@ def pesquisaFuncionarioCPF(text):
 
 #funcionario por CPTS
 def pesquisaFuncionarioCPTS(text):
-    conn = sqlite3.connect('biblioteca.db')
-    c = conn.cursor()
+    conexao = mysql.connector.connect(
+    host = '172.31.96.227', #ip do banco
+    user= 'admin',
+    password= 'minich25',
+    database= 'crud'
+)
+    c = conexao.cursor()
     c.execute("""SELECT * FROM viewFuncionario
                 WHERE CPTS=? 
             """, (text, ))
@@ -179,8 +244,13 @@ def pesquisaFuncionarioCPTS(text):
 
 #funcionario por função
 def pesquisaFuncionarioFuncao(text):
-    conn = sqlite3.connect('biblioteca.db')
-    c = conn.cursor()
+    conexao = mysql.connector.connect(
+    host = '172.31.96.227', #ip do banco
+    user= 'admin',
+    password= 'minich25',
+    database= 'crud'
+)
+    c = conexao.cursor()
     c.execute("""SELECT * FROM viewFuncionario
                 WHERE Funcao=? 
             """, (text, ))
@@ -192,8 +262,13 @@ def pesquisaFuncionarioFuncao(text):
 
 #funcionario por email
 def pesquisaFuncionarioEmail(text):
-    conn = sqlite3.connect('biblioteca.db')
-    c = conn.cursor()
+    conexao = mysql.connector.connect(
+    host = '172.31.96.227', #ip do banco
+    user= 'admin',
+    password= 'minich25',
+    database= 'crud'
+)
+    c = conexao.cursor()
     c.execute("""SELECT * FROM viewFuncionario
                 WHERE Email=? 
             """, (text, ))

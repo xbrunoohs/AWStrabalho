@@ -1,24 +1,39 @@
-import sqlite3
+import mysql.connector
 
 #deleta da tabela
 
 def deleteExemplar(codigo):
-    conn = sqlite3.connect('biblioteca.db')
-    c = conn.cursor()
+    conexao = mysql.connector.connect(
+    host = '172.31.96.227', #ip do banco
+    user= 'admin',
+    password= 'minich25',
+    database= 'crud'
+)
+    c = conexao.cursor()
     c.execute("""DELETE FROM exemplar WHERE codigoExemplar=(?)""", (int(codigo[0][0]), ))
     conn.commit()
     conn.close()
     
 def deleteLivro(isbn):
-    conn = sqlite3.connect('biblioteca.db')
-    c = conn.cursor()
+    conexao = mysql.connector.connect(
+    host = '172.31.96.227', #ip do banco
+    user= 'admin',
+    password= 'minich25',
+    database= 'crud'
+)
+    c = conexao.cursor()
     c.execute("""DELETE FROM livro WHERE isbn=(?)""", (int(isbn[0][0]), ))
     conn.commit()
     conn.close()
 
 def deletePessoa(cpf):
-    conn = sqlite3.connect('biblioteca.db')
-    c = conn.cursor()
+    conexao = mysql.connector.connect(
+    host = '172.31.96.227', #ip do banco
+    user= 'admin',
+    password= 'minich25',
+    database= 'crud'
+)
+    c = conexao.cursor()
     c.execute("""DELETE FROM pessoa WHERE cpf=(?)""", (int(cpf[0][0]), ))
     conn.commit()
     conn.close()

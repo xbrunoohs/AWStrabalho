@@ -1,11 +1,16 @@
-import sqlite3
+import mysql.connector
 
 # ------ ORDENAR EXEMPLAR ------
 
 #por estado de empréstimo
 def ordemEmprestado(nome):
-    conn = sqlite3.connect('biblioteca.db')
-    c = conn.cursor()
+    conexao = mysql.connector.connect(
+    host = '172.31.96.227', #ip do banco
+    user= 'admin',
+    password= 'minich25',
+    database= 'crud'
+)
+    c = conexao.cursor()
     c.execute("""SELECT * FROM viewExemplar
                 WHERE ISBN=?
                 ORDER BY Emprestado;
@@ -18,8 +23,13 @@ print(ordemEmprestado("8585466294"))
 
 #por ano de publicação
 def ordemPubliAno(nome):
-    conn = sqlite3.connect('biblioteca.db')
-    c = conn.cursor()
+    conexao = mysql.connector.connect(
+    host = '172.31.96.227', #ip do banco
+    user= 'admin',
+    password= 'minich25',
+    database= 'crud'
+)
+    c = conexao.cursor()
     c.execute("""SELECT * FROM viewExemplar
                 WHERE ISBN=?
                 ORDER BY Publicacao;
@@ -32,8 +42,13 @@ def ordemPubliAno(nome):
 
 #por edição
 def ordemEdiLivro(titulo):
-    conn = sqlite3.connect('biblioteca.db')
-    c = conn.cursor()
+    conexao = mysql.connector.connect(
+    host = '172.31.96.227', #ip do banco
+    user= 'admin',
+    password= 'minich25',
+    database= 'crud'
+)
+    c = conexao.cursor()
     c.execute("""SELECT * FROM viewExemplar
                 WHERE ISBN=?
                 ORDER BY Edicao
@@ -46,8 +61,13 @@ def ordemEdiLivro(titulo):
 
 #livro por código
 def ordemAlfCodigo(cod):
-    conn = sqlite3.connect('biblioteca.db')
-    c = conn.cursor()
+    conexao = mysql.connector.connect(
+    host = '172.31.96.227', #ip do banco
+    user= 'admin',
+    password= 'minich25',
+    database= 'crud'
+)
+    c = conexao.cursor()
     c.execute("""SELECT * FROM viewExemplar
                 WHERE Codigo=?
             """, (cod, ))
@@ -59,8 +79,13 @@ def ordemAlfCodigo(cod):
 
 #por editora
 def ordemEditora(nome):
-    conn = sqlite3.connect('biblioteca.db')
-    c = conn.cursor()
+    conexao = mysql.connector.connect(
+    host = '172.31.96.227', #ip do banco
+    user= 'admin',
+    password= 'minich25',
+    database= 'crud'
+)
+    c = conexao.cursor()
     c.execute("""SELECT * FROM viewLivro
                 WHERE ISBN=?
                 ORDER BY Editora

@@ -1,11 +1,16 @@
-import sqlite3
+import mysql.connector
 
 # ------ PESQUISAS POR EMPRÉSTIMOS ------
 
 #pesquisar emprestimos por cadastro do sócio ordem a-z titulo
 def cadastroLivroTitulo(valor):
-    conn = sqlite3.connect('biblioteca.db')
-    c = conn.cursor()
+    conexao = mysql.connector.connect(
+    host = '172.31.96.227', #ip do banco
+    user= 'admin',
+    password= 'minich25',
+    database= 'crud'
+)
+    c = conexao.cursor()
     c.execute("""SELECT * FROM viewEmprestimos
                 WHERE Cadastro=?
                 ORDER BY Codigo
@@ -17,8 +22,13 @@ def cadastroLivroTitulo(valor):
 
 #pesquisar emprestimos por codigo z-a titulo
 def codigoCadastroTit(valor): 
-    conn = sqlite3.connect('biblioteca.db')
-    c = conn.cursor()
+    conexao = mysql.connector.connect(
+    host = '172.31.96.227', #ip do banco
+    user= 'admin',
+    password= 'minich25',
+    database= 'crud'
+)
+    c = conexao.cursor()
     c.execute("""SELECT * FROM viewEmprestimos
                 WHERE Cadastro=?
                 ORDER BY Cadastro

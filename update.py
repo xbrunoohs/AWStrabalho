@@ -1,9 +1,14 @@
-import sqlite3
+import mysql.connector
 
 # Alterar endereço
 def updateEndereco(data):
-    conn = sqlite3.connect('biblioteca.db')
-    c = conn.cursor()
+    conexao = mysql.connector.connect(
+    host = '172.31.96.227', #ip do banco
+    user= 'admin',
+    password= 'minich25',
+    database= 'crud'
+)
+    c = conexao.cursor()
     c.executemany(""" UPDATE pessoa 
             SET rua = ?, numero = ?, cidade = ?, cep = ?
             WHERE pessoa.cpf = ?""", (data))
@@ -12,8 +17,13 @@ def updateEndereco(data):
 
 # Alterar telefone
 def updateTelefone(data):
-    conn = sqlite3.connect('biblioteca.db')
-    c = conn.cursor()
+    conexao = mysql.connector.connect(
+    host = '172.31.96.227', #ip do banco
+    user= 'admin',
+    password= 'minich25',
+    database= 'crud'
+)
+    c = conexao.cursor()
     c.execute(""" UPDATE pessoa 
             SET telefone = ?
             WHERE pessoa.cpf = ?""", (data))
@@ -22,8 +32,13 @@ def updateTelefone(data):
 
 # Alterar email
 def updateEmail(data):
-    conn = sqlite3.connect('biblioteca.db')
-    c = conn.cursor()
+    conexao = mysql.connector.connect(
+    host = '172.31.96.227', #ip do banco
+    user= 'admin',
+    password= 'minich25',
+    database= 'crud'
+)
+    c = conexao.cursor()
     c.execute(""" UPDATE pessoa 
             SET email = ?
             WHERE pessoa.cpf = ?""", (data))
@@ -32,8 +47,13 @@ def updateEmail(data):
 
 # Alterar nome
 def updateNome(data):
-    conn = sqlite3.connect('biblioteca.db')
-    c = conn.cursor()
+    conexao = mysql.connector.connect(
+    host = '172.31.96.227', #ip do banco
+    user= 'admin',
+    password= 'minich25',
+    database= 'crud'
+)
+    c = conexao.cursor()
     c.execute(""" UPDATE pessoa 
             SET nome = ?
             WHERE pessoa.cpf = ?""", (data))
@@ -42,8 +62,13 @@ def updateNome(data):
 
 # Alterar a função do funcionario
 def updateFuncao(data):
-    conn = sqlite3.connect('biblioteca.db')
-    c = conn.cursor()
+    conexao = mysql.connector.connect(
+    host = '172.31.96.227', #ip do banco
+    user= 'admin',
+    password= 'minich25',
+    database= 'crud'
+)
+    c = conexao.cursor()
     c.execute(""" UPDATE funcionario 
             SET funcao = ?
             WHERE funcionario.cpf = ?""", (data))
@@ -52,8 +77,13 @@ def updateFuncao(data):
 
 # Alterar o salário do funcionario
 def updateSalario(data):
-    conn = sqlite3.connect('biblioteca.db')
-    c = conn.cursor()
+    conexao = mysql.connector.connect(
+    host = '172.31.96.227', #ip do banco
+    user= 'admin',
+    password= 'minich25',
+    database= 'crud'
+)
+    c = conexao.cursor()
     c.execute(""" UPDATE funcionario
             SET salario = ?
             WHERE funcionario.cpf = ?""", (data))

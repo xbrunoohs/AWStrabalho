@@ -1,7 +1,13 @@
-import sqlite3
+import mysql.connector
 
-conn = sqlite3.connect('biblioteca.db')
-c = conn.cursor()
+conexao = mysql.connector.connect(
+    host = '172.31.96.227', #ip do banco
+    user= 'admin',
+    password= 'minich25',
+    database= 'crud'
+)
+
+c = conexao.cursor()
 
 c.execute("""PRAGMA foreign_keys = ON;""")
 
